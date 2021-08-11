@@ -274,10 +274,11 @@ print(steps)
 
 # Getting predictions
 predictions = sxmodel.predict(n_periods=steps,exogenous = test[['lag','lag_avg_open','lag_avg_high','lag_diffavg_low','lag_diffavg_volume','compound']])
-#= results2.forecast(steps=steps,exog=test['lag'])
+# results2.forecast(steps=steps,exog = test['lag'])
 
 actual = test['avg_close'].values
 from sklearn.metrics import mean_squared_error
 test_set_rmse = (np.sqrt(mean_squared_error(actual, predictions)))
 print(test_set_rmse)
+
 
